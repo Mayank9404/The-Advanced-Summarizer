@@ -9,13 +9,11 @@ def _create_frequency_matrix(sentences):
     for sent in sentences:
         freq_table = {}
         words = word_tokenize(sent)
-        
         for word in words:
             word = word.lower()
             word = ps.stem(word)
             if word in stopWords:
                 continue
-
             if word in freq_table:
                 freq_table[word] += 1
             else:
@@ -53,8 +51,6 @@ def _create_documents_per_words(freq_matrix):
 
     return word_per_doc_table
 
-
-
 def _create_idf_matrix(freq_matrix, count_doc_per_words, total_documents):
     idf_matrix = {}
 
@@ -68,7 +64,6 @@ def _create_idf_matrix(freq_matrix, count_doc_per_words, total_documents):
 
     return idf_matrix
 
-
 def _create_tf_idf_matrix(tf_matrix, idf_matrix):
     tf_idf_matrix = {}
 
@@ -77,47 +72,30 @@ def _create_tf_idf_matrix(tf_matrix, idf_matrix):
         tf_idf_table = {}
 
         for (word1, value1), (word2, value2) in zip(f_table1.items(),
-                                                    f_table2.items()):  # here, keys are the same in both the table
+                                                    f_table2.items()): 
             tf_idf_table[word1] = float(value1 * value2)
 
         tf_idf_matrix[sent1] = tf_idf_table
 
     return tf_idf_matrix
 
-
 def _score_sentences(tf_idf_matrix) -> dict:
-    """
-    score a sentence by its word's TF
-    Basic algorithm: adding the TF frequency of every non-stop word in a sentence divided by total no of words in a sentence.
-    :rtype: dict
-    """
-
     sentenceValue = {}
-
     for sent, f_table in tf_idf_matrix.items():
         total_score_per_sentence = 0
 
         count_words_in_sentence = len(f_table)
         for word, score in f_table.items():
             total_score_per_sentence += score
-
         sentenceValue[sent] = total_score_per_sentence / count_words_in_sentence
 
     return sentenceValue
 
 
 def _find_average_score(sentenceValue) -> float:
-    """
-    Find the average score from the sentence value dictionary
-    :rtype: int
-    """
-    
-    
     sumValues = 0
     for entry in sentenceValue:
         sumValues += sentenceValue[entry]
-
-    # Average value of a sentence from original summary_text
     average = (sumValues / len(sentenceValue))
 
     return average
@@ -133,6 +111,7 @@ def _generate_summary(sentences, sentenceValue, threshold):
             sentence_count += 1
 
     return summary
+
 
 def run_summarization(text,factor):
     """
