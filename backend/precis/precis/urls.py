@@ -19,7 +19,5 @@ from summarizer import views
 
 urlpatterns = [
     path('result/', views.result),
-    path('index/', views.home),
-    path('team/', views.team),
     path('', views.home),
 ]

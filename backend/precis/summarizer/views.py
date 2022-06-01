@@ -4,13 +4,8 @@ from .summ import summarize
 from django.http import JsonResponse
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
-
-def team(request):
-    return render(request, 'team.html')
-
-def disp(request):
-    return render(request, 'result.html')
+    data = {}
+    return JsonResponse(data)
 
 def result(request):
     #print(dict(request.GET))
