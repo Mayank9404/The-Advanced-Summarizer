@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from youtube_transcript_api import YouTubeTranscriptApi
 from .summ import summarize
+from django.http import JsonResponse
 # Create your views here.
 def home(request):
     return render(request, 'index.html')
 
 def team(request):
     return render(request, 'team.html')
+
+def disp(request):
+    return render(request, 'result.html')
 
 def result(request):
     #print(dict(request.GET))
@@ -21,7 +25,8 @@ def result(request):
         transcript = trans(youtube_url)
         summary = summarize(transcript,size)
     data = {'summary':summary}
-    return render(request, 'result.html', data)
+    return JsonResponse(data)
+    #return render(request, 'result.html', data)
 
 
 def trans(url):
