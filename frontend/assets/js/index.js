@@ -4,7 +4,7 @@ function getData(){
     var size = document.getElementById("size").value;
 
     //fetches the data from the api
-    fetch(`http://miniproject05.pythonanywhere.com/result?youtube-url=${youtube_url}&text-ip=${text_ip}&size=${size}`)
+    fetch(`https://miniproject-b05.herokuapp.com/result?youtube-url=${youtube_url}&text-ip=${text_ip}&size=${size}`)
         .then(response => response.json())
         .then(data => {
             //display the data

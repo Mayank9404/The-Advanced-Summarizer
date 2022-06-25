@@ -1,0 +1,17 @@
+{
+    "name": "Precis: The Summarizer",
+    "version": "1.0.0",
+    "description": "Advanced summarizer",
+    "manifest_version": 3,
+    "author": "Mayank Kumar",
+    "icons": {
+        "128": "icons/icon.png"
+    },
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Precis: The Summarizer"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
