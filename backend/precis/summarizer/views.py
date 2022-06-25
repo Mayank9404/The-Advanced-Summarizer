@@ -56,8 +56,6 @@ def scrap(urls):
       'Accept-Language': 'en-US,en;q=0.8',
       'Connection': 'keep-alive'}
 
-    urls = "https://realpython.com/beautiful-soup-web-scraper-python/"
-
     req = urllib.request.Request(url=urls, headers=header) 
     html = urllib.request.urlopen(req)
 
