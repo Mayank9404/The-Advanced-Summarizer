@@ -45,7 +45,7 @@ def trans(url):
             i['text'] = i['text'].replace(x,x+' ')
         transcript += (' ' + i['text'])
     return transcript
-    
+ 
 def scrap(urls):
     header= {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) ' 
       'AppleWebKit/537.11 (KHTML, like Gecko) '
@@ -63,12 +63,8 @@ def scrap(urls):
     article =''
     for para in htmlParse.find_all("p"):
         article+=para.get_text()
-    start1 =0
-    end1=0
-    flag1=0
-    start2 =0
-    end2=0
-    flag2=0
+        
+    start1=end1=flag1=start2=end2=flag2 =0
     x = len(article)
     i=0
     while i<x:
