@@ -13,6 +13,7 @@ In order to get the better of the problem, we have come up with a solution using
 - If the input is a link to a text article, the software will automatically extract the text using **Web Scrapping** and then summarise it.
 - If the input is a text, the software will directly summarise it.
 - The algorithm that is used to summarise the text is **TF-IDF**.
+- The complete backend has been developed using **Django**.
 
 ## Interface
 The outcome of this project are two main tools - A chrome extension and a website - both are eligible for summarising the input. The input can either be a link of YouTube video or long text-based article or just a text input.
@@ -40,7 +41,7 @@ The outcome of this project are two main tools - A chrome extension and a websit
 
 ## Tools Used
 * Python programming Language
-* Django
+* Django (backend)
 * HTML
 * CSS
 * NLP 
